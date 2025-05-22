@@ -15,7 +15,7 @@ def hash_password(password: str) -> bytes:
     return bcrypt.hashpw(encoded_pass, salt)
 
 
-def is_valid(hashed_password: bytes, password: str):
+def is_valid(hashed_password: bytes, password: str) -> bool:
     """
     :param hashed_password: hashed pass
     :param password: plain password
