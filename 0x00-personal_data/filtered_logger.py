@@ -31,18 +31,19 @@ class RedactingFormatter(logging.Formatter):
                                   record.getMessage(), self.SEPARATOR)
         return super(RedactingFormatter, self).format(record)
 
-    def get_logger(self):
-        """
-        :return: logger
-        """
-        logs = logging.getLogger("user_data")
-        logs.setLevel(logging.INFO)
-        logs.propagate = False
 
-        handler = logging.StreamHandler()
-        handler.setFormatter(RedactingFormatter(list(PII_FIELDS)))
-        logs.addHandler(handler)
-        return logs
+def get_logger(self):
+    """
+    :return: logger
+    """
+    logs = logging.getLogger("user_data")
+    logs.setLevel(logging.INFO)
+    logs.propagate = False
+
+    handler = logging.StreamHandler()
+    handler.setFormatter(RedactingFormatter(list(PII_FIELDS)))
+    logs.addHandler(handler)
+    return logs
 
 
 def filter_datum(fields: List[str], redaction: str,
