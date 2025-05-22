@@ -8,10 +8,6 @@ import re
 def filter_datum(fields, redaction, message, separator):
     """
     filter data
-    :param fields: private data fields
-    :param redaction: redaction letters
-    :param message: full message
-    :param separator: delimiter
     :return: redacted data
     """
     field = "|".join(fields)
