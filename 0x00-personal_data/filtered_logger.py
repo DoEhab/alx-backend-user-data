@@ -8,9 +8,9 @@ import re
 def filter_datum(fields, redaction, message, separator):
     """
     filter data
-    :return: redacted data
+    :return: message with redacted data
     """
-    field = "|".join(fields)
-    pattern = r'({})=[^{}]*'.format(field, separator)
-    result = re.sub(pattern, r'\1=' + redaction, message)
-    return result
+    for field in fields:
+        message = re.sub(f'{field}=.*?{separator}',
+                         f'{field}={redaction}{separator}', message)
+    return message
