@@ -32,7 +32,7 @@ class RedactingFormatter(logging.Formatter):
         return super(RedactingFormatter, self).format(record)
 
 
-def get_logger(self):
+def get_logger(self) -> logging.Logger:
     """
     :return: logger
     """
