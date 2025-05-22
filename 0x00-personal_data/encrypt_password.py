@@ -21,4 +21,4 @@ def is_valid(hashed_password: bytes, password: str):
     :param password: plain password
     :return: True or False
     """
-    return bcrypt.checkpw(password.encode('utf-8'), hashed_password)
+    return bcrypt.checkpw(password.encode('UTF-8'), hashed_password)
