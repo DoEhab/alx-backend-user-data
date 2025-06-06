@@ -57,3 +57,18 @@ class DB:
         except InvalidRequestError:
             raise InvalidRequestError("Invalid request,"
                                       "possibly due to invalid fields")
+
+    def update_user(self, user_id: int, **kwargs) -> None:
+        """
+        update user data
+        :param user_id: user id
+        :param kwargs: key word args
+        :return: none
+        """
+        user = self.find_user_by(id=user_id)
+        for key, val in kwargs.items():
+            if not hasattr(user, key):
+                raise ValueError()
+            setattr(user, key, val)
+
+        self._session.commit()
