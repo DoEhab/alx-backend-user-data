@@ -54,4 +54,5 @@ class DB:
         except NoResultFound:
             raise NoResultFound("No user found matching the given criteria")
         except InvalidRequestError:
-            raise InvalidRequestError("Invalid request, possibly due to invalid fields")
+            raise InvalidRequestError("Invalid request,"
+                                      "possibly due to invalid fields")
